@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reactive.Disposables;
 
 using Prism.Mvvm;
 
@@ -6,8 +7,13 @@ namespace Phoenix.ViewModels
 {
     internal class ViewModel : BindableBase, IDisposable
     {
-        protected ViewModel() {}
+        public CompositeDisposable CompositeDisposable { get; }
 
-        public void Dispose() {}
+        protected ViewModel()
+        {
+            CompositeDisposable = new CompositeDisposable();
+        }
+
+        public void Dispose() => CompositeDisposable.Dispose();
     }
 }

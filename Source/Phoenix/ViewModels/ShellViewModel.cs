@@ -2,11 +2,29 @@
 using System.Windows.Input;
 
 using Prism.Commands;
+using Prism.Interactivity.InteractionRequest;
 
 namespace Phoenix.ViewModels
 {
     internal class ShellViewModel : ViewModel
     {
+        public InteractionRequest<IConfirmation> ConfigurationRequest { get; }
+
+        public ShellViewModel()
+        {
+            ConfigurationRequest = new InteractionRequest<IConfirmation>();
+        }
+
+        #region OpenConfigurationCommand
+
+        private ICommand _openConfigurationCommand;
+
+        public ICommand OpenConfigurationCommand => _openConfigurationCommand ?? (_openConfigurationCommand = new DelegateCommand(OpenConfiguration));
+
+        private void OpenConfiguration() => ConfigurationRequest.Raise(new Confirmation {Title = "設定"});
+
+        #endregion
+
         #region ExitCommand
 
         private ICommand _exitCommand;

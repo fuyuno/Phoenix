@@ -1,11 +1,11 @@
-﻿using Hardcodet.Wpf.TaskbarNotification;
+﻿using System.Windows;
 
 namespace Phoenix.Views
 {
     /// <summary>
     ///     MainWindow.xaml の相互作用ロジック
     /// </summary>
-    public partial class Shell : TaskbarIcon
+    public partial class Shell : Window
     {
         public Shell()
         {
