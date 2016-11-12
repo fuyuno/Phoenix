@@ -189,6 +189,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Extensions\IEnumerableExt.cs" />
     <Compile Include="Models\Program.cs" />
     <Compile Include="Models\Vaio\Product.cs" />
     <Compile Include="Models\Vaio\Z131.cs" />

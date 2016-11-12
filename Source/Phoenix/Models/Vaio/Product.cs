@@ -2,6 +2,8 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
+using HtmlAgilityPack;
+
 namespace Phoenix.Models.Vaio
 {
     internal abstract class Product
@@ -23,13 +25,16 @@ namespace Phoenix.Models.Vaio
 
         public abstract Task<IEnumerable<Program>> Parse();
 
-        protected async Task<string> Get()
+        protected async Task<HtmlDocument> Get()
         {
             using (var httpClient = new HttpClient())
             {
                 var response = await httpClient.GetAsync(FeedUrl);
                 response.EnsureSuccessStatusCode();
-                return await response.Content.ReadAsStringAsync();
+
+                var htmlDocument = new HtmlDocument();
+                htmlDocument.LoadHtml(await response.Content.ReadAsStringAsync());
+                return htmlDocument;
             }
         }
     }
