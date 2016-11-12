@@ -18,6 +18,11 @@ namespace Phoenix.Models.Vaio
         public abstract string Name { get; }
 
         /// <summary>
+        ///     Windows
+        /// </summary>
+        public Windows Windows { get; protected set; } = Windows.Windows10;
+
+        /// <summary>
         ///     型番
         /// </summary>
         public abstract string ModelNumber { get; }
