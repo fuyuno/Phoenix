@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,30 +12,25 @@ namespace Phoenix.Models.Vaio
         public override string ModelNumber => "VJZ13B*";
         public override string FeedUrl => "https://support.vaio.com/products/z-vjz131/update.html";
 
-        public override async Task<IEnumerable<Program>> Parse()
+        public override async Task Parse()
         {
             var html = await Get();
             var documentNodes = html.DocumentNode
-                                    .SelectSingleNode("//div[@id='tab1' and @class='tab-pane']//dl[@class='information information-support']");
+                                    .SelectSingleNode("//div[@id='tab1']//dl[@class='information information-support']");
 
-            if (documentNodes.ChildNodes.Count % 2 != 0)
-                throw new NotSupportedException("Cannot parse HTML document, please contact me.");
-
-            var list = new List<Program>();
-            foreach (var nodePair in documentNodes.ChildNodes.Chunk(2))
+            foreach (var nodePair in documentNodes.ChildNodes.Where(w => (w.Name == "dt") || (w.Name == "dd")).Chunk(2))
             {
                 var nodes = nodePair.ToList();
                 var info = nodes[1];
                 var program = new Program
                 {
                     Date = DateTime.Parse(nodes[0].InnerText),
-                    Name = info.FirstChild.InnerText,
-                    Url = info.FirstChild.Attributes["href"].Value,
-                    Description = info.ChildNodes[2].InnerText
+                    Name = info.ChildNodes.First(w => w.Name == "a").InnerText,
+                    Url = info.ChildNodes.First(w => w.Name == "a").Attributes["href"].Value,
+                    Description = info.ChildNodes.Last().InnerText.Trim()
                 };
-                list.Add(program);
+                Softwares.Add(program);
             }
-            return list;
         }
     }
 }

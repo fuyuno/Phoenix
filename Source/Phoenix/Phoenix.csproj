@@ -194,7 +194,7 @@
     <Compile Include="Models\Vaio\Product.cs" />
     <Compile Include="Models\Vaio\Z131.cs" />
     <Compile Include="Models\Vaio\Z13B.cs" />
-    <Compile Include="ViewModels\ConfigurationWindowViewModel.cs" />
+    <Compile Include="ViewModels\ConfigurationContentViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="Views\ConfigurationContent.xaml.cs">

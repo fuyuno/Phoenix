@@ -23,12 +23,24 @@ namespace Phoenix.Models.Vaio
         /// </summary>
         public abstract string FeedUrl { get; }
 
-        public abstract Task<IEnumerable<Program>> Parse();
+        /// <summary>
+        ///     更新プログラム
+        /// </summary>
+        public List<Program> Softwares { get; }
+
+        protected Product()
+        {
+            Softwares = new List<Program>();
+        }
+
+        public abstract Task Parse();
 
         protected async Task<HtmlDocument> Get()
         {
             using (var httpClient = new HttpClient())
             {
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent",
+                                                                         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.87 Safari/537.36");
                 var response = await httpClient.GetAsync(FeedUrl);
                 response.EnsureSuccessStatusCode();
 
