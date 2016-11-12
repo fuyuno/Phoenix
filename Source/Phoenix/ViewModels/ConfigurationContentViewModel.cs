@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 using Phoenix.Models.Vaio;
 
@@ -17,9 +16,8 @@ namespace Phoenix.ViewModels
 
         private async void Parse()
         {
-            var vaio = new Z13B();
+            var vaio = new Z131();
             await vaio.Parse();
-            Debugger.Break();
         }
 
         #endregion
