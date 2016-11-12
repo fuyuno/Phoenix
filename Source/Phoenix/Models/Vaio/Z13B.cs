@@ -1,7 +1,7 @@
 ﻿namespace Phoenix.Models.Vaio
 {
     /// <summary>
-    ///     VJZ13B
+    ///     VAIO Z フリップモデル
     /// </summary>
     internal class Z13B : Product
     {

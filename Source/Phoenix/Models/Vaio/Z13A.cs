@@ -2,6 +2,9 @@
 
 namespace Phoenix.Models.Vaio
 {
+    /// <summary>
+    ///     VAIO Z
+    /// </summary>
     internal class Z13A : Product
     {
         public override string Name => $"VAIO Z ({Windows})";

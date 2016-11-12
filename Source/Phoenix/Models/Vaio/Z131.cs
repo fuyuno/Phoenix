@@ -3,7 +3,7 @@
 namespace Phoenix.Models.Vaio
 {
     /// <summary>
-    ///     VJZ131
+    ///     VAIO Z クラムシェルモデル
     /// </summary>
     internal class Z131 : Product
     {

@@ -3,7 +3,7 @@
 namespace Phoenix.Models.Vaio
 {
     /// <summary>
-    ///     VJZ12A
+    ///     VAIO Z Canvas
     /// </summary>
     internal class Z12A : Product
     {

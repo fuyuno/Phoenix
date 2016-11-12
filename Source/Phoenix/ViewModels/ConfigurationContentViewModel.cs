@@ -17,7 +17,7 @@ namespace Phoenix.ViewModels
 
         private async void Parse()
         {
-            var vaio = new Z131(Windows.Windows7);
+            var vaio = new S111(Windows.Windows81);
             await vaio.Parse();
         }
 
