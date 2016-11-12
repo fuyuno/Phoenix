@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 using HtmlAgilityPack;
+
+using Phoenix.Extensions;
 
 namespace Phoenix.Models.Vaio
 {
@@ -24,6 +28,11 @@ namespace Phoenix.Models.Vaio
         public abstract string FeedUrl { get; }
 
         /// <summary>
+        ///     解析用 XPath
+        /// </summary>
+        public abstract string XPath { get; }
+
+        /// <summary>
         ///     更新プログラム
         /// </summary>
         public List<Program> Softwares { get; }
@@ -33,7 +42,25 @@ namespace Phoenix.Models.Vaio
             Softwares = new List<Program>();
         }
 
-        public abstract Task Parse();
+        public virtual async Task Parse()
+        {
+            var html = await Get();
+            var documentNodes = html.DocumentNode.SelectSingleNode(XPath);
+
+            foreach (var nodePair in documentNodes.ChildNodes.Where(w => (w.Name == "dt") || (w.Name == "dd")).Chunk(2))
+            {
+                var nodes = nodePair.ToList();
+                var info = nodes[1];
+                var program = new Program
+                {
+                    Date = DateTime.Parse(nodes[0].InnerText),
+                    Name = info.ChildNodes.First(w => w.Name == "a").InnerText,
+                    Url = info.ChildNodes.First(w => w.Name == "a").Attributes["href"].Value,
+                    Description = info.ChildNodes.Last().InnerText.Trim()
+                };
+                Softwares.Add(program);
+            }
+        }
 
         protected async Task<HtmlDocument> Get()
         {

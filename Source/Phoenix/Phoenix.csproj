@@ -192,6 +192,8 @@
     <Compile Include="Extensions\IEnumerableExt.cs" />
     <Compile Include="Models\Program.cs" />
     <Compile Include="Models\Vaio\Product.cs" />
+    <Compile Include="Models\Vaio\Z12A10.cs" />
+    <Compile Include="Models\Vaio\Z12A8.cs" />
     <Compile Include="Models\Vaio\Z131.cs" />
     <Compile Include="Models\Vaio\Z13B.cs" />
     <Compile Include="ViewModels\ConfigurationContentViewModel.cs" />
