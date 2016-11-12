@@ -16,7 +16,7 @@ namespace Phoenix.ViewModels
 
         private async void Parse()
         {
-            var vaio = new Z12A10();
+            var vaio = new Z13A("8.1");
             await vaio.Parse();
         }
 
