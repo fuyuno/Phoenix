@@ -191,9 +191,11 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Extensions\IEnumerableExt.cs" />
     <Compile Include="Models\Program.cs" />
+    <Compile Include="Models\Vaio\C151.cs" />
     <Compile Include="Models\Vaio\Product.cs" />
     <Compile Include="Models\Vaio\S111.cs" />
     <Compile Include="Models\Vaio\S131.cs" />
+    <Compile Include="Models\Vaio\S151.cs" />
     <Compile Include="Models\Vaio\Z12A.cs" />
     <Compile Include="Models\Vaio\Z131.cs" />
     <Compile Include="Models\Vaio\Z13A.cs" />
