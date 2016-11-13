@@ -203,9 +203,10 @@
     <Compile Include="Models\Vaio\Z13A.cs" />
     <Compile Include="Models\Vaio\Z13B.cs" />
     <Compile Include="Models\Windows.cs" />
+    <Compile Include="Mvvm\ViewModelHelper.cs" />
     <Compile Include="ViewModels\ConfigurationContentViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
-    <Compile Include="ViewModels\ViewModel.cs" />
+    <Compile Include="Mvvm\ViewModel.cs" />
     <Compile Include="Views\ConfigurationContent.xaml.cs">
       <DependentUpon>ConfigurationContent.xaml</DependentUpon>
     </Compile>

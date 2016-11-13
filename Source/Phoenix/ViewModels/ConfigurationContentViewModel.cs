@@ -2,6 +2,7 @@
 
 using Phoenix.Models;
 using Phoenix.Models.Vaio;
+using Phoenix.Mvvm;
 
 using Prism.Commands;
 

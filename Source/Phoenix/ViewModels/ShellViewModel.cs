@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 
+using Phoenix.Mvvm;
+
 using Prism.Commands;
 using Prism.Interactivity.InteractionRequest;
 

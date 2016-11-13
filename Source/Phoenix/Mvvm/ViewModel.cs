@@ -3,7 +3,7 @@ using System.Reactive.Disposables;
 
 using Prism.Mvvm;
 
-namespace Phoenix.ViewModels
+namespace Phoenix.Mvvm
 {
     internal class ViewModel : BindableBase, IDisposable
     {
