@@ -7,10 +7,11 @@
              xmlns:prism="http://prismlibrary.com/"
              xmlns:vm="clr-namespace:Phoenix.ViewModels"
              d:DataContext="{d:DesignInstance vm:ConfigurationContentViewModel}"
+             d:DesignHeight="300"
+             d:DesignWidth="450"
              prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d">
-    <Grid>
-        <TextBlock Text="Hello" />
-        <Button Command="{Binding ParseCommand}" Content="パース" />
-    </Grid>
+    <StackPanel Margin="10">
+        <TextBlock Text="aaa"></TextBlock>
+    </StackPanel>
 </UserControl>

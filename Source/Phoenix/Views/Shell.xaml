@@ -12,7 +12,7 @@
         d:DataContext="{d:DesignInstance vm:ShellViewModel}"
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d">
-    <tb:TaskbarIcon>
+    <tb:TaskbarIcon DoubleClickCommand="{Binding OpenConfigurationCommand}">
         <tb:TaskbarIcon.ContextMenu>
             <ContextMenu>
                 <MenuItem Command="{Binding OpenConfigurationCommand}"
@@ -36,8 +36,8 @@
                 <actions:PopupNoOnwerWindowAction.WindowStyle>
                     <Style TargetType="{x:Type Window}">
                         <Setter Property="ResizeMode" Value="NoResize" />
-                        <Setter Property="Height" Value="600" />
-                        <Setter Property="Width" Value="900" />
+                        <Setter Property="Height" Value="300" />
+                        <Setter Property="Width" Value="450" />
                     </Style>
                 </actions:PopupNoOnwerWindowAction.WindowStyle>
             </actions:PopupNoOnwerWindowAction>

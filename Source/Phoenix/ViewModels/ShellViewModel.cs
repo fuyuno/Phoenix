@@ -23,7 +23,7 @@ namespace Phoenix.ViewModels
 
         public ICommand OpenConfigurationCommand => _openConfigurationCommand ?? (_openConfigurationCommand = new DelegateCommand(OpenConfiguration));
 
-        private void OpenConfiguration() => ConfigurationRequest.Raise(new Confirmation {Title = "設定"});
+        private void OpenConfiguration() => ConfigurationRequest.Raise(new Confirmation {Title = "Phoenix 設定"});
 
         #endregion
 
