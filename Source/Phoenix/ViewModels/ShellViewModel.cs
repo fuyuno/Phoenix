@@ -2,6 +2,7 @@
 using System.Windows.Input;
 
 using Phoenix.Mvvm;
+using Phoenix.Services.Interfaces;
 
 using Prism.Commands;
 using Prism.Interactivity.InteractionRequest;
@@ -10,10 +11,14 @@ namespace Phoenix.ViewModels
 {
     internal class ShellViewModel : ViewModel
     {
+        private readonly IConfigurationService _configurationService;
         public InteractionRequest<IConfirmation> ConfigurationRequest { get; }
 
-        public ShellViewModel()
+        public ShellViewModel(IConfigurationService configurationService)
         {
+            _configurationService = configurationService;
+            _configurationService.Load();
+
             ConfigurationRequest = new InteractionRequest<IConfirmation>();
         }
 
@@ -32,7 +37,11 @@ namespace Phoenix.ViewModels
         private ICommand _exitCommand;
         public ICommand ExitCommand => _exitCommand ?? (_exitCommand = new DelegateCommand(Exit));
 
-        private void Exit() => Application.Current.Shutdown();
+        private void Exit()
+        {
+            _configurationService.Save();
+            Application.Current.Shutdown();
+        }
 
         #endregion
     }
