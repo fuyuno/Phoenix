@@ -1,27 +1,16 @@
-﻿using System.Windows.Input;
+﻿using Phoenix.Mvvm;
 
-using Phoenix.Models;
-using Phoenix.Models.Vaio;
-using Phoenix.Mvvm;
-
-using Prism.Commands;
+using Reactive.Bindings;
 
 namespace Phoenix.ViewModels
 {
     internal class ConfigurationContentViewModel : ViewModel
     {
-        #region ParseCommand
+        public ReactiveProperty<int> Interval { get; private set; }
 
-        private ICommand _parseCommand;
-
-        public ICommand ParseCommand => _parseCommand ?? (_parseCommand = new DelegateCommand(Parse));
-
-        private async void Parse()
+        public ConfigurationContentViewModel()
         {
-            var vaio = new S131(Windows.Windows7);
-            await vaio.Parse();
+            Interval = new ReactiveProperty<int>(0);
         }
-
-        #endregion
     }
 }

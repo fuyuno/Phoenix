@@ -11,7 +11,30 @@
              d:DesignWidth="450"
              prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d">
-    <StackPanel Margin="10">
-        <TextBlock Text="aaa"></TextBlock>
-    </StackPanel>
+    <Grid Margin="10">
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="Margin" Value="0,0,10,0" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <StackPanel Height="30" Orientation="Horizontal">
+                <TextBlock Text="更新の通知間隔:" />
+                <ComboBox Width="100"
+                          Height="25"
+                          SelectedIndex="{Binding Interval.Value,
+                                                  Mode=TwoWay}">
+                    <ComboBoxItem>毎日</ComboBoxItem>
+                    <ComboBoxItem>毎週</ComboBoxItem>
+                    <ComboBoxItem>毎月</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
 </UserControl>
