@@ -16,10 +16,8 @@ namespace Phoenix.ViewModels
         public ReactiveProperty<bool> IsRegistered { get; }
 
         public string Name => _product.Name;
-
-        public string Windows => _product.Windows.ToWinStr();
-
         public string ModelNumber => _product.ModelNumber;
+        public string Windows => _product.Windows.ToWinStr();
 
         public ConfigurationContentViewModel(IConfigurationService configurationService)
         {

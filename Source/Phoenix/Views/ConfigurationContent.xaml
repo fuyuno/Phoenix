@@ -36,12 +36,12 @@
                 <TextBlock Text="{Binding Name}" />
             </StackPanel>
             <StackPanel>
-                <TextBlock Text="Windows バージョン:" />
-                <TextBlock Text="{Binding Windows}" />
+                <TextBlock Text="型番:" />
+                <TextBlock Text="{Binding ModelNumber}" />
             </StackPanel>
             <StackPanel>
-                <TextBlock Text="VAIO 型番:" />
-                <TextBlock Text="{Binding ModelNumber}" />
+                <TextBlock Text="Windows バージョン:" />
+                <TextBlock Text="{Binding Windows}" />
             </StackPanel>
         </StackPanel>
 
