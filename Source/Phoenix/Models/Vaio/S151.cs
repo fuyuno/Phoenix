@@ -7,7 +7,7 @@ namespace Phoenix.Models.Vaio
     /// </summary>
     internal class S151 : Product
     {
-        public override string Name => $"VAIO S15 ({Windows.ToWinStr()})";
+        public override string Name => "VAIO S15";
         public override string ModelNumber => "VJS151*";
         public override string FeedUrl => "https://support.vaio.com/products/s15/update.html";
         public override string XPath => $"//dl[@class='information information-support'][{Windows.ToWinIndex()}]";
