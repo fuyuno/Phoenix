@@ -12,6 +12,33 @@ namespace Phoenix.Models.Vaio
 {
     internal abstract class Product
     {
+        private static readonly List<Product> Products = new List<Product>
+        {
+            new C151(Windows.Windows7),
+            new C151(Windows.Windows10),
+            new F152(Windows.Windows7),
+            new F152(Windows.Windows81),
+            new F152(Windows.Windows10),
+            new P132(Windows.Windows7),
+            new P132(Windows.Windows81),
+            new P132(Windows.Windows10),
+            new S111(Windows.Windows7),
+            new S111(Windows.Windows81),
+            new S111(Windows.Windows10),
+            new S131(Windows.Windows7),
+            new S131(Windows.Windows81),
+            new S131(Windows.Windows10),
+            new S151(Windows.Windows7),
+            new S151(Windows.Windows10),
+            new Z12A(Windows.Windows7),
+            new Z12A(Windows.Windows10),
+            new Z131(Windows.Windows7),
+            new Z131(Windows.Windows10),
+            new Z13A(Windows.Windows81),
+            new Z13A(Windows.Windows10),
+            new Z13B()
+        };
+
         /// <summary>
         ///     製品名
         /// </summary>
@@ -45,6 +72,11 @@ namespace Phoenix.Models.Vaio
         protected Product()
         {
             Softwares = new List<Program>();
+        }
+
+        public static Product Find(string name, Windows windows)
+        {
+            return Products.Single(w => w.ModelNumber.StartsWith(name) && (w.Windows == windows));
         }
 
         public virtual async Task Parse()
