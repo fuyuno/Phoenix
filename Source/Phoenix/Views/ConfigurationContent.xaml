@@ -45,7 +45,9 @@
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" VerticalAlignment="Top">
+        <StackPanel Grid.Column="1"
+                    Height="Auto"
+                    Orientation="Vertical">
             <StackPanel.Resources>
                 <Style TargetType="StackPanel">
                     <Setter Property="Orientation" Value="Horizontal" />
@@ -62,6 +64,12 @@
                     <ComboBoxItem>毎週</ComboBoxItem>
                     <ComboBoxItem>毎月</ComboBoxItem>
                 </ComboBox>
+            </StackPanel>
+            <StackPanel>
+                <CheckBox VerticalAlignment="Center"
+                          Content="スタートアップに登録する (推奨)"
+                          IsChecked="{Binding IsRegistered.Value,
+                                              Mode=TwoWay}" />
             </StackPanel>
         </StackPanel>
     </Grid>
