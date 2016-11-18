@@ -34,7 +34,6 @@ namespace Phoenix.ViewModels
                     AppStartup.Unregister();
                 else
                     AppStartup.Register();
-                IsRegistered.Value = !IsRegistered.Value;
             }).AddTo(this);
         }
     }

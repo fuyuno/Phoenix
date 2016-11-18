@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
+﻿using System.IO;
 
 using Newtonsoft.Json;
 
@@ -11,14 +9,7 @@ namespace Phoenix.Services
 {
     internal class ConfigurationService : IConfigurationService
     {
-        private readonly Dictionary<string, PropertyInfo> _cacheTable;
-
         public Configuration Configuration { get; private set; }
-
-        public ConfigurationService()
-        {
-            _cacheTable = new Dictionary<string, PropertyInfo>();
-        }
 
         public void Save()
         {
