@@ -137,6 +137,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\ProgramViewModel.cs" />
     <Compile Include="ViewModels\UpdateNotificationContentViewModel.cs" />
     <Compile Include="Views\UpdateNotificationContent.xaml.cs">
       <DependentUpon>UpdateNotificationContent.xaml</DependentUpon>

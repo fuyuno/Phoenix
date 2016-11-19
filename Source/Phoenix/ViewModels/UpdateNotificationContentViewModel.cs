@@ -1,9 +1,11 @@
-﻿using Phoenix.Mvvm;
+﻿using System.Collections.ObjectModel;
+
+using Phoenix.Mvvm;
 
 namespace Phoenix.ViewModels
 {
     internal class UpdateNotificationContentViewModel : ViewModel
     {
-        //public ObservableCollection<Program>
+        public ObservableCollection<ProgramViewModel> Content { get; set; }
     }
 }

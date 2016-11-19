@@ -24,7 +24,7 @@ namespace Phoenix.Models
             Softwares = new ObservableCollection<Program>();
 
             _product = Product.Find(configurationService.Configuration.ModelNumber, configurationService.Configuration.Windows);
-            _disposable = Observable.Timer(TimeSpan.FromMinutes(5), TimeSpan.FromSeconds(10)).Subscribe(async w => await CheckUpdate());
+            _disposable = Observable.Timer(TimeSpan.FromMinutes(1), TimeSpan.FromSeconds(10)).Subscribe(async w => await CheckUpdate());
         }
 
         public void Dispose() => _disposable.Dispose();
