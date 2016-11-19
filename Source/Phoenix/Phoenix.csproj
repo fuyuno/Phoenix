@@ -137,6 +137,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\UpdateNotificationContentViewModel.cs" />
+    <Compile Include="Views\UpdateNotificationContent.xaml.cs">
+      <DependentUpon>UpdateNotificationContent.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\ConfigurationContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -153,6 +157,7 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Models\AppStartup.cs" />
+    <Compile Include="Models\UpdateChecker.cs" />
     <Compile Include="PhoenixConstants.cs" />
     <Compile Include="Extensions\IEnumerableExt.cs" />
     <Compile Include="Models\Configuration.cs" />
@@ -184,6 +189,10 @@
       <DependentUpon>Shell.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\UpdateNotificationContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

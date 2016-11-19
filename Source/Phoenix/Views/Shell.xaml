@@ -42,5 +42,19 @@
                 </actions:PopupNoOnwerWindowAction.WindowStyle>
             </actions:PopupNoOnwerWindowAction>
         </prism:InteractionRequestTrigger>
+        <prism:InteractionRequestTrigger SourceObject="{Binding UpdateNotificationRequest}">
+            <actions:PopupNoOnwerWindowAction WindowStartupLocation="CenterScreen">
+                <actions:PopupNoOnwerWindowAction.WindowContent>
+                    <view:UpdateNotificationContent />
+                </actions:PopupNoOnwerWindowAction.WindowContent>
+                <actions:PopupNoOnwerWindowAction.WindowStyle>
+                    <Style TargetType="{x:Type Window}">
+                        <Setter Property="ResizeMode" Value="NoResize" />
+                        <Setter Property="Height" Value="300" />
+                        <Setter Property="Width" Value="450" />
+                    </Style>
+                </actions:PopupNoOnwerWindowAction.WindowStyle>
+            </actions:PopupNoOnwerWindowAction>
+        </prism:InteractionRequestTrigger>
     </i:Interaction.Triggers>
 </Window>

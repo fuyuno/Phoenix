@@ -30,5 +30,23 @@ namespace Phoenix.Models
                     throw new ArgumentOutOfRangeException(nameof(value));
             }
         }
+
+        public static int ToDays(this Interval obj)
+        {
+            switch (obj)
+            {
+                case Interval.Daily:
+                    return 1;
+
+                case Interval.Weekly:
+                    return 7;
+
+                case Interval.Monthly:
+                    return 30;
+
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(obj));
+            }
+        }
     }
 }

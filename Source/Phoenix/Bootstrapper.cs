@@ -8,6 +8,8 @@ using Phoenix.Views;
 
 using Prism.Unity;
 
+using Reactive.Bindings;
+
 namespace Phoenix
 {
     internal class Bootstrapper : UnityBootstrapper
@@ -15,6 +17,7 @@ namespace Phoenix
         protected override void ConfigureContainer()
         {
             base.ConfigureContainer();
+            UIDispatcherScheduler.Initialize();
 
             Container.RegisterType<IConfigurationService, ConfigurationService>(new ContainerControlledLifetimeManager());
         }
