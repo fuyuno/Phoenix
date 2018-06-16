@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phoenix", "Phoenix\Phoenix.csproj", "{90130050-4514-47C6-ACF1-1A8A5445E3EE}"
 EndProject
@@ -11,6 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		..\.gitignore = ..\.gitignore
 		..\LICENSE = ..\LICENSE
 		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dist", "dist", "{754E3470-8622-411F-A9F5-E3E2042650F2}"
+	ProjectSection(SolutionItems) = preProject
+		..\dist\README.txt = ..\dist\README.txt
 	EndProjectSection
 EndProject
 Global
@@ -26,5 +31,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{754E3470-8622-411F-A9F5-E3E2042650F2} = {42265776-8A98-432D-9D8F-95F353010363}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D3F00B7-6D90-4394-B41C-09E1CC2230B3}
 	EndGlobalSection
 EndGlobal
