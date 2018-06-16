@@ -14,29 +14,33 @@ namespace Phoenix.Models.Vaio
     {
         private static readonly List<Product> Products = new List<Product>
         {
-            new C151(Windows.Windows7),
-            new C151(Windows.Windows10),
-            new F152(Windows.Windows7),
-            new F152(Windows.Windows81),
-            new F152(Windows.Windows10),
-            new P132(Windows.Windows7),
-            new P132(Windows.Windows81),
-            new P132(Windows.Windows10),
-            new S111(Windows.Windows7),
-            new S111(Windows.Windows81),
-            new S111(Windows.Windows10),
-            new S131(Windows.Windows7),
-            new S131(Windows.Windows81),
-            new S131(Windows.Windows10),
-            new S151(Windows.Windows7),
-            new S151(Windows.Windows10),
-            new Z12A(Windows.Windows7),
-            new Z12A(Windows.Windows10),
-            new Z131(Windows.Windows7),
-            new Z131(Windows.Windows10),
-            new Z13A(Windows.Windows81),
-            new Z13A(Windows.Windows10),
-            new Z13B()
+            new C151(Windows.Windows7), //  2016/08 : VAIO C15
+            new C151(Windows.Windows10), // 2016/08 : VAIO C15
+            new F152(Windows.Windows7), //  2015/04 : VAIO Fit 15E | mk2
+            new F152(Windows.Windows81), // 2015/04 : VAIO Fit 15E | mk2
+            new F152(Windows.Windows10), // 2015/04 : VAIO Fit 15E | mk2
+            new F156(), //                  2017/09 : VAIO Fit 15E | mk3
+            new P132(Windows.Windows7), //  2015/05 : VAIO Pro 13 | mk2
+            new P132(Windows.Windows81), // 2015/05 : VAIO Pro 13 | mk2
+            new P132(Windows.Windows10), // 2015/05 : VAIO Pro 13 | mk2
+            new S111(Windows.Windows7), //  2015/12 : VAIO S11
+            new S111(Windows.Windows81), // 2015/12 : VAIO S11
+            new S111(Windows.Windows10), // 2015/12 : VAIO S11
+            new S112(), //                  2017/09 : VAIO S11
+            new S131(Windows.Windows7), //  2016/02 : VAIO S13
+            new S131(Windows.Windows81), // 2016/02 : VIAO S13
+            new S131(Windows.Windows10), // 2016/02 : VAIO S13
+            new S132(), //                  2017/09 : VAIO S13
+            new S151(Windows.Windows7), //  2016/02 : VAIO S15
+            new S151(Windows.Windows10), // 2016/02 : VAIO S15
+            new S152(), //                  2017/09 : VAIO S15
+            new Z12A(Windows.Windows7), //  2015/05 : VAIO Z Canvas
+            new Z12A(Windows.Windows10), // 2015/05 : VAIO Z Canvas
+            new Z131(Windows.Windows7), //  2016/02 : VAIO Z (Clamshell model)
+            new Z131(Windows.Windows10), // 2016/02 : VAIO Z (Clamshell model)
+            new Z13A(Windows.Windows81), // 2015/02 : VAIO Z
+            new Z13A(Windows.Windows10), // 2015/02 : VAIO Z
+            new Z13B() //                   2016/02 : VAIO Z (Flip model)
         };
 
         /// <summary>
@@ -76,7 +80,7 @@ namespace Phoenix.Models.Vaio
 
         public static Product Find(string name, Windows windows)
         {
-            return Products.Single(w => w.ModelNumber.StartsWith(name) && (w.Windows == windows));
+            return Products.Single(w => w.ModelNumber.StartsWith(name) && w.Windows == windows);
         }
 
         public virtual async Task Parse()
@@ -84,7 +88,7 @@ namespace Phoenix.Models.Vaio
             var html = await Get();
             var documentNodes = html.DocumentNode.SelectSingleNode(XPath);
 
-            foreach (var nodePair in documentNodes.ChildNodes.Where(w => (w.Name == "dt") || (w.Name == "dd")).Chunk(2))
+            foreach (var nodePair in documentNodes.ChildNodes.Where(w => w.Name == "dt" || w.Name == "dd").Chunk(2))
             {
                 var nodes = nodePair.ToList();
                 var info = nodes[1];
