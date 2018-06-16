@@ -78,7 +78,7 @@ namespace Phoenix.Models
                     _isRegistered = false;
                 return _isRegistered.Value;
             }
-            private set { _isRegistered = value; }
+            private set => _isRegistered = value;
         }
 
         #endregion

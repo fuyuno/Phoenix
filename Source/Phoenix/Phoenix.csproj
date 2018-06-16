@@ -137,6 +137,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Vaio\F156.cs" />
+    <Compile Include="Models\Vaio\S112.cs" />
+    <Compile Include="Models\Vaio\S132.cs" />
+    <Compile Include="Models\Vaio\S152.cs" />
     <Compile Include="ViewModels\ProgramViewModel.cs" />
     <Compile Include="ViewModels\UpdateNotificationContentViewModel.cs" />
     <Compile Include="Views\UpdateNotificationContent.xaml.cs">
