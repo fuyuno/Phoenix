@@ -58,8 +58,7 @@
                 <TextBlock Text="更新の通知間隔:" />
                 <ComboBox Width="100"
                           Height="25"
-                          SelectedIndex="{Binding Interval.Value,
-                                                  Mode=TwoWay}">
+                          SelectedIndex="{Binding Interval.Value, Mode=TwoWay}">
                     <ComboBoxItem>毎日</ComboBoxItem>
                     <ComboBoxItem>毎週</ComboBoxItem>
                     <ComboBoxItem>毎月</ComboBoxItem>
@@ -68,8 +67,7 @@
             <StackPanel>
                 <CheckBox VerticalAlignment="Center"
                           Content="スタートアップに登録する (推奨)"
-                          IsChecked="{Binding IsRegistered.Value,
-                                              Mode=TwoWay}" />
+                          IsChecked="{Binding IsRegistered.Value, Mode=TwoWay}" />
             </StackPanel>
         </StackPanel>
     </Grid>

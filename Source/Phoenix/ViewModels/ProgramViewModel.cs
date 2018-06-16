@@ -26,7 +26,10 @@ namespace Phoenix.ViewModels
         private ICommand _clickCommand;
         public ICommand ClickCommand => _clickCommand ?? (_clickCommand = new DelegateCommand(Click));
 
-        private void Click() => Process.Start(_program.Url);
+        private void Click()
+        {
+            Process.Start(_program.Url);
+        }
 
         #endregion
     }

@@ -12,7 +12,7 @@ namespace Phoenix.ViewModels
     internal class ConfigurationContentViewModel : ViewModel
     {
         private readonly Product _product;
-        public ReactiveProperty<int> Interval { get; private set; }
+        public ReactiveProperty<int> Interval { get; }
         public ReactiveProperty<bool> IsRegistered { get; }
 
         public string Name => _product.Name;

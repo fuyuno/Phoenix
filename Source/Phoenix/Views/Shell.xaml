@@ -19,7 +19,8 @@
                           FontWeight="Bold"
                           Header="設定_(C)" />
                 <Separator />
-                <MenuItem Command="{Binding ExitCommand}" Header="終了_(X)" />
+                <MenuItem Command="{Binding ExitCommand}"
+                          Header="終了_(X)" />
             </ContextMenu>
         </tb:TaskbarIcon.ContextMenu>
     </tb:TaskbarIcon>

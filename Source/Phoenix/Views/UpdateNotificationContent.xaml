@@ -14,14 +14,15 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Margin="0,0,0,10">
-            <TextBlock FontSize="24" Text="ソフトウェアアップデート" />
+        <Grid Grid.Row="0"
+              Margin="0,0,0,10">
+            <TextBlock FontSize="24"
+                       Text="ソフトウェアアップデート" />
             <Line Stroke="Silver"
                   X1="0"
                   X2="530"
                   Y1="35"
                   Y2="35" />
-
         </Grid>
         <ScrollViewer Grid.Row="1"
                       HorizontalAlignment="Stretch"
@@ -52,7 +53,6 @@
                                         ダウンロード
                                     </Hyperlink>
                                 </TextBlock>
-
                             </StackPanel>
                         </Grid>
                     </DataTemplate>

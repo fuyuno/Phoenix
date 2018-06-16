@@ -24,9 +24,9 @@ namespace Phoenix.Models
             var version = Environment.OSVersion.Version;
             if (version.Major == 10)
                 return Windows.Windows10;
-            if ((version.Major == 6) && (version.Minor == 3))
+            if (version.Major == 6 && version.Minor == 3)
                 return Windows.Windows81;
-            if ((version.Major == 6) && (version.Minor == 1))
+            if (version.Major == 6 && version.Minor == 1)
                 return Windows.Windows7;
             throw new NotSupportedException();
         }

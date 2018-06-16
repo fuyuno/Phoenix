@@ -14,6 +14,9 @@ namespace Phoenix.Mvvm
             CompositeDisposable = new CompositeDisposable();
         }
 
-        public void Dispose() => CompositeDisposable.Dispose();
+        public void Dispose()
+        {
+            CompositeDisposable.Dispose();
+        }
     }
 }

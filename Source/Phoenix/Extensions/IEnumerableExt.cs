@@ -3,6 +3,7 @@ using System.Linq;
 
 namespace Phoenix.Extensions
 {
+    // ReSharper disable once InconsistentNaming
     internal static class IEnumerableExt
     {
         // http://stackoverflow.com/questions/419019/split-list-into-sublists-with-linq

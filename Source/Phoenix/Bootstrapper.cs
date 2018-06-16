@@ -22,6 +22,9 @@ namespace Phoenix
             Container.RegisterType<IConfigurationService, ConfigurationService>(new ContainerControlledLifetimeManager());
         }
 
-        protected override DependencyObject CreateShell() => Container.Resolve<Shell>();
+        protected override DependencyObject CreateShell()
+        {
+            return Container.Resolve<Shell>();
+        }
     }
 }

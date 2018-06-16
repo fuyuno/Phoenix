@@ -44,16 +44,21 @@ namespace Phoenix.Models
         {
             if (indexes.Length == 0)
                 indexes = new[] {1, 2, 2};
-            if (obj == Windows.Windows10)
-                return indexes[0];
 
-            if (obj == Windows.Windows81)
-                return indexes[1];
+            switch (obj)
+            {
+                case Windows.Windows10:
+                    return indexes[0];
 
-            if (obj == Windows.Windows7)
-                return indexes.Length == 3 ? indexes[2] : indexes[1];
+                case Windows.Windows81:
+                    return indexes[1];
 
-            return 1;
+                case Windows.Windows7:
+                    return indexes.Length == 3 ? indexes[2] : indexes[1];
+
+                default:
+                    return 1;
+            }
         }
     }
 }
