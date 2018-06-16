@@ -27,7 +27,10 @@ namespace Phoenix.Models
             _disposable = Observable.Timer(TimeSpan.FromMinutes(1), TimeSpan.FromSeconds(10)).Subscribe(async w => await CheckUpdate());
         }
 
-        public void Dispose() => _disposable.Dispose();
+        public void Dispose()
+        {
+            _disposable.Dispose();
+        }
 
         private async Task CheckUpdate()
         {
@@ -35,20 +38,28 @@ namespace Phoenix.Models
             if (configuration.CheckedAt.AddDays(configuration.Interval.ToDays()) > DateTime.Now)
                 return;
 
-            await _product.Parse();
+            try
+            {
+                await _product.Parse();
 
-            var d = configuration.CheckedAt == DateTime.MinValue ? DateTime.Now : configuration.CheckedAt;
+                var d = configuration.CheckedAt == DateTime.MinValue ? DateTime.Now : configuration.CheckedAt;
 
-            configuration.CheckedAt = DateTime.Now;
-            _configurationService.Save();
+                configuration.CheckedAt = DateTime.Now;
+                _configurationService.Save();
 
-            if (_product.Softwares.Count(w => w.Date >= d) == 0)
-                return;
+                if (_product.Softwares.Count(w => w.Date >= d) == 0)
+                    return;
 
-            Softwares.Clear();
-            Debug.WriteLine("Updates found");
-            foreach (var program in _product.Softwares.Where(w => w.Date >= d))
-                Softwares.Add(program);
+                Softwares.Clear();
+                Debug.WriteLine("Updates found");
+                foreach (var program in _product.Softwares.Where(w => w.Date >= d))
+                    Softwares.Add(program);
+            }
+            catch (Exception e)
+            {
+                // Network issue
+                Debug.WriteLine(e);
+            }
         }
     }
 }
